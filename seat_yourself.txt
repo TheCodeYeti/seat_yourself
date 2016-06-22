@@ -80,6 +80,7 @@ UserType - has_many users
 - name
 
 Restaurant has_many users thru reservations/has_many owners/
+- name
 - capacity
 - hours of operations
 - contact info
