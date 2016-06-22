@@ -1,0 +1,88 @@
+User
+make/cancel/modify a reservation/party size/time/notes
+see hours of operations/contact info/method of payments/description
+see the menu
+see gallery
+search available times/based on party size/proximity/chain/cuisine/price(avg of menu)/ratings
+favourites list
+view reviews
+add reviews
+list by ratings - where do you ratings
+share the reservation
+choose table
+make user account
+collect points
+receive alerts and reminders
+pre-order
+pay for food
+recurring
+see reservations
+
+Owner
+view/track reservations
+see user info
+modify reservation
+set hours of operations
+set contact info
+set the menu
+set restaurant capacity
+upload gallery
+respond to review(s)
+
+
+Must have
+make/a reservation/party size/time/notes
+search available times/based on party size(LIST)
+see hours of operations/contact info/method of payments/description
+see reservation
+set restaurant capacity
+
+Should Have
+cancel/modify a reservation
+search available proximity/chain/cuisine/price(avg of menu)/ratings (LIST)
+see the menu
+view reviews
+add reviews
+list by ratings - where do you ratings
+favourites list
+pre-order
+pay for food
+recurring
+make user account
+share the reservation
+choose table
+collect points
+receive alerts and reminders
+specific staff
+
+Could Have
+
+
+Would like to have
+
+
+Key words
+
+Reservation - belongs_to user/ - belongs_to restaurant
+- party_size
+- date
+- time
+- notes
+- user_id
+- restaurant_id
+
+User  - belongs_to user_type/has_many restaurants thru reservations/has_many owned_restaurants/
+- email
+- name
+- type_id
+
+UserType - has_many users
+- name
+
+Restaurant has_many users thru reservations/has_many owners/
+- capacity
+- hours of operations
+- contact info
+- method of payments
+- description
+- user_id
