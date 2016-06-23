@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   resources :sessions, only: [:new, :create, :destroy]
+
 
   resources :users
 
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
       resources :reservations
 
   end
+
 
 
 

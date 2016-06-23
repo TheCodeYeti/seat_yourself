@@ -2,10 +2,10 @@
 
 
 <ul>
-  <!-- <% if @restaurants != nil %> -->
-    <% @restaurants.each do |restaurant| %>
-      <li><%= link_to restaurant.name + ' ' + restaurant.address , edit_restaurant_path(restaurant.id) %> </li>
 
-    <% end %>
-<!-- <% end %> -->
+<% @restaurants.each do |restaurant| %>
+  <li><%= link_to restaurant.name + ' ' + restaurant.address , edit_restaurant_path(restaurant.id) %> </li>
+  <li><%= link_to 'Create a reservation', new_restaurant_reservation_path(restaurant.id) %></li>
+<% end %>
+
 </ul>

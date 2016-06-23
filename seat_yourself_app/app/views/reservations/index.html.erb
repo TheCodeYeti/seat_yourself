@@ -1,0 +1,12 @@
+<h1>Reservations</h1>
+
+<%= @reservations.each do |reservation| %>
+  <%= reservation.reservation_date %> <br>
+  <%= reservation.reservation_time %> <br>
+  <%= reservation.party_size %> <br>
+  <%= reservation.notes %> <br>
+
+
+  <br>
+  <br>
+<% end %>
