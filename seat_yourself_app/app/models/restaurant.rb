@@ -12,5 +12,11 @@ class Restaurant < ActiveRecord::Base
 
   end
 
+  def get_available_times
+    available_times = (open_time...close_time).map do |time_unit|
+      time_unit
+    end
+  end
+
 
 end
