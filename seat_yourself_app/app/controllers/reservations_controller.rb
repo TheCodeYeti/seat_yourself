@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
       redirect_to reservations_url
     else
       render :new
-    end 
+    end
   end
 
   def show
@@ -22,13 +22,23 @@ class ReservationsController < ApplicationController
   end
 
   def update
+    @reservation = Reservation.find(params[:id])
+
+    if @reservation = Reservation.update_attributes(reservation_params)
+      redirect_to reservations_url
+    else
+      render :edit
+    end
+
   end
 
   def edit
+    @reservation = Reservation.find(params[:id])
   end
 
-  def delete
-  end
+  # We will do this later
+  #def delete
+  #end
 
   private
 
