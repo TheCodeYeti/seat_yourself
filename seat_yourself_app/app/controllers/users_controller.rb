@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to restaurants_url
+      # redirect_to restaurants_url THIS IS FOR LATER
+      redirect_to users_url
     else
       render :new
     end
