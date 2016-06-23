@@ -1,10 +1,12 @@
 class RestaurantsController < ApplicationController
 
-
   def index
 
-    @restaurants = Restaurant.all
-
+ # @restaurants = Restaurant.all
+    if current_user
+      @restaurants = Restaurant.where(user_id: current_user.id)
+    end
+    
   end
 
   def show
