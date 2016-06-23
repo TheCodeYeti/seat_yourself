@@ -69,27 +69,26 @@ Would like to have
 Key words
 
 Reservation - belongs_to user/ - belongs_to restaurant
-- party_size
-- date
-- time integer
-- notes
-- user_id
-- restaurant_id
+- party_size:integer
+- reservation_date:date
+- time:integer
+- notes:text
+- user_id:integer
+- restaurant_id:integer
 
 User  - has_many restaurants thru reservations/has_many owned_restaurants/
-- email
-- name
+- email:string
+- name:string
 
 Restaurant has_many users thru reservations/has_many owners/
-- name
-- capacity
-- hours of operations
+- name:string
+- capacity:integer
 - contact info
-- method of payments
-- description
-- user_id
-- start_time integer
-- end_time integer
+- method of payments:integer
+- description:text
+- user_id:integer
+- start_time:integer
+- end_time:integer
 
 
 
