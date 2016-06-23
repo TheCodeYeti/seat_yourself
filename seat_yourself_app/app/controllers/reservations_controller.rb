@@ -43,6 +43,6 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:reservation_date, :time, :party_size, :notes) #Do we need restaurant or user id here?
+    params.require(:reservation).permit(:reservation_date, :reservation_time, :party_size, :notes) #Do we need restaurant or user id here?
   end
 end
