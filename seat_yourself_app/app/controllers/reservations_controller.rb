@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   def new
-    @reservation = Reservation.new
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @reservation = @restaurant.reservations.build
   end
 
   def create
