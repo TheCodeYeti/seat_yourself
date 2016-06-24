@@ -27,7 +27,7 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.find_by(id: params[:id])
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def owned
@@ -49,7 +49,7 @@ class RestaurantsController < ApplicationController
 
     def update
 
-      @restaurant = Restaurant.find(id: params[:id])
+      @restaurant = Restaurant.find(params[:id])
 
       if @restaurant.update_attributes(restaurant_params())
         redirect_to restaurants_url(@restaurant)
@@ -60,7 +60,7 @@ class RestaurantsController < ApplicationController
     end
 
   def destroy
-    @restaurant = Restaurant.find(id: params[:id])
+    @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
     redirect_to restaurants_url
   end
