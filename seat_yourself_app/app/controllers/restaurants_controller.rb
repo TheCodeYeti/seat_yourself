@@ -24,8 +24,8 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.find_by(params[:id])
-
+    @restaurant = Restaurant.find_by(id: params[:id])
+    logger.info params[:id]
   end
 
     def create
@@ -40,7 +40,7 @@ class RestaurantsController < ApplicationController
     end
 
     def update
-      @restaurant = Restaurant.find(params[:id])
+      @restaurant = Restaurant.find(id: params[:id])
 
       if @restaurant.update_attributes(restaurant_params())
         redirect_to restaurants_url(@restaurant)
@@ -51,7 +51,7 @@ class RestaurantsController < ApplicationController
     end
 
     def destroy
-      @restaurant = Restaurant.find(params[:id])
+      @restaurant = Restaurant.find(id: params[:id])
       @restaurant.destroy
       redirect_to restaurants_url
     end
