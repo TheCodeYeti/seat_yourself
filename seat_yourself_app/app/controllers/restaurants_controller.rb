@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
     if current_user
       @restaurants = Restaurant.where(user_id: current_user.id)
     end
-    
+
   end
 
   def show
@@ -23,6 +23,11 @@ class RestaurantsController < ApplicationController
 
   end
 
+  def owned
+
+  end
+
+
     def create
       @restaurant = Restaurant.new(restaurant_params())
       @restaurant.owner = current_user
@@ -34,28 +39,30 @@ class RestaurantsController < ApplicationController
 
     end
 
-    def update
-      @restaurant = Restaurant.find(params[:id])
+  end
 
-      if @restaurant.update_attributes(restaurant_params())
-        redirect_to restaurants_url(@restaurant)
-      else
-        render  :edit
-      end
+  def update
+    @restaurant = Restaurant.find(params[:id])
 
+    if @restaurant.update_attributes(restaurant_params())
+      redirect_to restaurants_url(@restaurant)
+    else
+      render  :edit
     end
 
-    def destroy
-      @restaurant = Restaurant.find(params[:id])
-      @restaurant.destroy
-      redirect_to restaurants_url
-    end
+  end
 
-    private
+  def destroy
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+    redirect_to restaurants_url
+  end
 
-    def restaurant_params
-      params.require(:restaurant).permit(:name, :capacity, :address, :description, :open_time, :close_time, :user_id)
-    end
+  private
+
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :capacity, :address, :description, :open_time, :close_time, :user_id)
+  end
 
 
 end

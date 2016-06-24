@@ -18,4 +18,18 @@ class Restaurant < ActiveRecord::Base
 
   end
 
+  def available_times
+    available_times = (open_time...close_time).map do |time_unit|
+      time_unit
+    end
+
+  end
+
+  def can_reserve?(party_size, reservation_date, reservation_time)
+    (party_size > 0) && (remaining_capacity(reservation_date, reservation_time) > party_size)
+  end
+
+  def remaining_capacity(day, time_slot)
+    self.capacity - self.reservations.where(reservation_time = time_slot).sum(:party_size)
+  end
 end
