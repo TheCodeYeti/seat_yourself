@@ -1,12 +1,15 @@
 <h1>Restaurants</h1>
 
 
+
 <h2>Owned</h2>
+
 <ul>
 
   <% @restaurants.each do |restaurant| %>
     <li><%= link_to restaurant.name + ' ' + restaurant.address , edit_restaurant_path(restaurant.id) %> </li>
   <% end %>
+
 
 
 
@@ -20,10 +23,3 @@
   <% end %>
 
 </ul>
-
-<!-- t.integer  "reservation_time"
-t.date     "reservation_date"
-t.integer  "party_size"
-t.integer  "user_id"
-t.integer  "restaurant_id"
-t.text     "notes" -->
