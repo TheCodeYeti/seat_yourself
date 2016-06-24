@@ -2,11 +2,11 @@ class RestaurantsController < ApplicationController
 
   def index
 
- # @restaurants = Restaurant.all
-    if current_user
-      @restaurants = Restaurant.where(user_id: current_user.id)
-    end
-
+    @restaurants = Restaurant.all
+  #   if current_user
+  #     @restaurants = Restaurant.where(user_id: current_user.id)
+  #   end
+  #
   end
 
   def show
@@ -28,15 +28,13 @@ class RestaurantsController < ApplicationController
   end
 
 
-    def create
-      @restaurant = Restaurant.new(restaurant_params())
-      @restaurant.owner = current_user
-      if @restaurant.save
-        redirect_to restaurants_url
-      else
-        render  :new
-      end
-
+  def create
+    @restaurant = Restaurant.new(restaurant_params())
+    @restaurant.owner = current_user
+    if @restaurant.save
+      redirect_to restaurants_url
+    else
+      render  :new
     end
 
   end
