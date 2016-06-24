@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'restaurants/owner_list'
+
   resources :sessions, only: [:new, :create, :destroy]
 
 

@@ -2,15 +2,20 @@ class RestaurantsController < ApplicationController
 
   def index
 
- # @restaurants = Restaurant.all
-    if current_user
-      @restaurants = Restaurant.where(user_id: current_user.id)
-    end
-    
+    @restaurants = Restaurant.all
+
   end
 
   def show
     @restaurant = Restaurant.find_by(params[:id])
+  end
+
+  def owner_list
+    @restaurants = []
+
+    if current_user
+      @restaurants = Restaurant.where(user_id: current_user.id)
+    end
   end
 
   def new
