@@ -30,6 +30,11 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find_by(id: params[:id])
   end
 
+  def owned
+
+  end
+
+
     def create
       @restaurant = Restaurant.new(restaurant_params())
       @restaurant.owner = current_user
@@ -41,7 +46,9 @@ class RestaurantsController < ApplicationController
 
     end
 
+
     def update
+
       @restaurant = Restaurant.find(id: params[:id])
 
       if @restaurant.update_attributes(restaurant_params())
@@ -52,17 +59,18 @@ class RestaurantsController < ApplicationController
 
     end
 
-    def destroy
-      @restaurant = Restaurant.find(id: params[:id])
-      @restaurant.destroy
-      redirect_to restaurants_url
-    end
+  def destroy
+    @restaurant = Restaurant.find(id: params[:id])
+    @restaurant.destroy
+    redirect_to restaurants_url
+  end
 
-    private
 
-    def restaurant_params
-      params.require(:restaurant).permit(:name, :capacity, :address, :description, :open_time, :close_time, :user_id)
-    end
+  private
+
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :capacity, :address, :description, :open_time, :close_time, :user_id)
+  end
 
 
 end

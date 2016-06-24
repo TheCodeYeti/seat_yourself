@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
 
     if @reservation = Reservation.update_attributes(reservation_params)
-      redirect_to reservations_url
+      redirect_to restaurant_reservations_url
     else
       render :edit
     end
