@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+
   resources :users
 
 
@@ -8,8 +12,12 @@ Rails.application.routes.draw do
   get 'restaurants/owned'
 
   resources :restaurants do
-    resources :reservations
+
+      resources :reservations
+
   end
+
+
 
 
   # get 'restaurants/index'

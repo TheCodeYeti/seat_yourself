@@ -1,9 +1,11 @@
 class RestaurantsController < ApplicationController
 
-
   def index
 
-    @restaurants = Restaurant.all
+ # @restaurants = Restaurant.all
+    if current_user
+      @restaurants = Restaurant.where(user_id: current_user.id)
+    end
 
   end
 
@@ -13,6 +15,7 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new()
+
   end
 
   def edit
@@ -21,16 +24,19 @@ class RestaurantsController < ApplicationController
   end
 
   def owned
-    
+
   end
 
-  def create
-    @restaurant = Restaurant.new(restaurant_params())
 
-    if @restaurant.save
-      redirect_to restaurants_url
-    else
-      render  :new
+    def create
+      @restaurant = Restaurant.new(restaurant_params())
+      @restaurant.owner = current_user
+      if @restaurant.save
+        redirect_to restaurants_url
+      else
+        render  :new
+      end
+
     end
 
   end
