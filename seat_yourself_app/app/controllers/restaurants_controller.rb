@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
   end
 
   def owner_list
-    
+
     @restaurants = []
 
     if current_user
@@ -28,7 +28,6 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find_by(id: params[:id])
-    logger.info params[:id]
   end
 
     def create
