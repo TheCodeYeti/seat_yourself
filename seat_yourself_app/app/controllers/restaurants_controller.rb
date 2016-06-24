@@ -2,15 +2,23 @@ class RestaurantsController < ApplicationController
 
   def index
 
- # @restaurants = Restaurant.all
-    if current_user
-      @restaurants = Restaurant.where(user_id: current_user.id)
-    end
+    @restaurants = Restaurant.all
 
   end
 
   def show
-    @restaurant = Restaurant.find_by(params[:id])
+    @restaurant = Restaurant.find_by(id: params[:id])
+  end
+
+  def owner_list
+
+    @restaurants = []
+
+    if current_user
+      @restaurants = Restaurant.where(user_id: current_user.id)
+      @reservations = Reservation.where(user_id: current_user.id)
+    end
+
   end
 
   def new
@@ -19,8 +27,7 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.find_by(params[:id])
-
+    @restaurant = Restaurant.find_by(id: params[:id])
   end
 
   def owned
@@ -39,24 +46,25 @@ class RestaurantsController < ApplicationController
 
     end
 
-  end
 
-  def update
-    @restaurant = Restaurant.find(params[:id])
+    def update
 
-    if @restaurant.update_attributes(restaurant_params())
-      redirect_to restaurants_url(@restaurant)
-    else
-      render  :edit
+      @restaurant = Restaurant.find(id: params[:id])
+
+      if @restaurant.update_attributes(restaurant_params())
+        redirect_to restaurants_url(@restaurant)
+      else
+        render  :edit
+      end
+
     end
 
-  end
-
   def destroy
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(id: params[:id])
     @restaurant.destroy
     redirect_to restaurants_url
   end
+
 
   private
 

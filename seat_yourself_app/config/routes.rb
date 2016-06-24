@@ -1,23 +1,19 @@
 Rails.application.routes.draw do
 
+  root 'restaurants#index'
+
+  get 'restaurants/owner_list'
 
   resources :sessions, only: [:new, :create, :destroy]
 
-
   resources :users
 
-
-  root 'restaurants#index'
-
-  get 'restaurants/owned'
 
   resources :restaurants do
 
       resources :reservations
 
   end
-
-
 
 
   # get 'restaurants/index'
