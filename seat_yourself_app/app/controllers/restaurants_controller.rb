@@ -17,7 +17,7 @@ class RestaurantsController < ApplicationController
     if current_user
       @restaurants = Restaurant.where(user_id: current_user.id)
       @reservations = Reservation.where(user_id: current_user.id)
-
+      @restaurants_for_reservation = Restaurant.all
     end
 
   end
