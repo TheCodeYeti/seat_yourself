@@ -17,6 +17,7 @@ class RestaurantsController < ApplicationController
     if current_user
       @restaurants = Restaurant.where(user_id: current_user.id)
       @reservations = Reservation.where(user_id: current_user.id)
+
     end
 
   end
@@ -34,7 +35,7 @@ class RestaurantsController < ApplicationController
 
   end
 
-  # hello
+  # hello jajajajaja
     def create
       @restaurant = Restaurant.new(restaurant_params())
       @restaurant.owner = current_user

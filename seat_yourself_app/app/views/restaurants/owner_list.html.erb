@@ -4,16 +4,17 @@
 
 <h2>Owned</h2>
 
+<%= link_to "New Restaurant" , new_restaurant_path %>
+
 <ul>
 
   <% @restaurants.each do |restaurant| %>
     <li><%= link_to restaurant.name + ' ' + restaurant.address , edit_restaurant_path(restaurant.id) %> </li>
   <% end %>
 
-
-
-
 </ul>
+
+
 
 <h2>Reservations</h2>
 <ul>
