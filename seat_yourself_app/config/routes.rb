@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root 'restaurants#index'
 
+  get 'restaurants/owned'
+
   resources :restaurants do
     resources :reservations
   end
