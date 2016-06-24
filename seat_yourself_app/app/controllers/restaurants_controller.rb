@@ -7,15 +7,18 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find_by(params[:id])
+    @restaurant = Restaurant.find_by(id: params[:id])
   end
 
   def owner_list
+    
     @restaurants = []
 
     if current_user
       @restaurants = Restaurant.where(user_id: current_user.id)
+      @reservations = Reservation.where(user_id: current_user.id)
     end
+
   end
 
   def new
