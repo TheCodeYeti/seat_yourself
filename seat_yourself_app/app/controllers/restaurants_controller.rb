@@ -3,7 +3,6 @@ class RestaurantsController < ApplicationController
   def index
 
     @restaurants = Restaurant.all
-
   end
 
   def show
@@ -44,9 +43,7 @@ class RestaurantsController < ApplicationController
       else
         render  :new
       end
-
-    end
-
+  end
 
     def update
 

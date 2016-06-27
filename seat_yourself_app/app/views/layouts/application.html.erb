@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Seat Youself</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -11,7 +12,7 @@
     <%= csrf_meta_tags %>
 
   </head>
-  <body  class="tinted-image"  >
+  <body>
 
     <header>
       <nav class="navbar navbar-default">
@@ -74,24 +75,24 @@
       </nav>
 
     </header>
+    <body>
+      <% if flash[:notice] %>
+        <p id="notice"><%= flash[:notice] %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p id="alert"><%= flash[:alert] %></p>
+      <% end %>
 
-    <% if flash[:notice] %>
-      <p id="notice"><%= flash[:notice] %></p>
-    <% end %>
-    <% if flash[:alert] %>
-      <p id="alert"><%= flash[:alert] %></p>
-    <% end %>
 
-  <main>
+      <section>
 
-    <section>
+        <div class="container">
 
-      <div class="container">
+        <%= yield %>
 
-      <%= yield %>
+        </div>
+      </section>
 
-      </div>
-    </section>
-<main>
-  </body>
+    </body>
+
 </html>
