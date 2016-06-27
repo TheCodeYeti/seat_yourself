@@ -43,7 +43,7 @@ class RestaurantsController < ApplicationController
     else
       render  :new
     end
-
+  end 
 
     def update
 
