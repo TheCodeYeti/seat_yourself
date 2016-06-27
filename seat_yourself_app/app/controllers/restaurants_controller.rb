@@ -40,7 +40,7 @@ class RestaurantsController < ApplicationController
       @restaurant = Restaurant.new(restaurant_params())
       @restaurant.owner = current_user
       if @restaurant.save
-        redirect_to restaurants_url
+        redirect_to restaurants_owner_list_path
       else
         render  :new
       end
@@ -53,7 +53,7 @@ class RestaurantsController < ApplicationController
       @restaurant = Restaurant.find(params[:id])
 
       if @restaurant.update_attributes(restaurant_params())
-        redirect_to restaurants_url(@restaurant)
+        redirect_to restaurants_owner_list_path # redirect_to restaurants_url(@restaurant)
       else
         render  :edit
       end
