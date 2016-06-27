@@ -3,7 +3,6 @@ class RestaurantsController < ApplicationController
   def index
 
     @restaurants = Restaurant.all
-
   end
 
   def show
@@ -36,15 +35,13 @@ class RestaurantsController < ApplicationController
   end
 
 
-    def create
-      @restaurant = Restaurant.new(restaurant_params())
-      @restaurant.owner = current_user
-      if @restaurant.save
-        redirect_to restaurants_url
-      else
-        render  :new
-      end
-
+  def create
+    @restaurant = Restaurant.new(restaurant_params())
+    @restaurant.owner = current_user
+    if @restaurant.save
+      redirect_to restaurants_url
+    else
+      render  :new
     end
 
 
