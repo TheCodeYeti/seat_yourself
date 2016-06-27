@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+
+
+ body {
+ /*background: url(https://static.pexels.com/photos/62097/pexels-photo-62097.jpeg) no-repeat center center fixed;*/
+
+
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ /*color: white;    // Changed*/
+
+ }
+
+ .tinted-image {
+
+   background:
+     /* top, transparent red, faked with gradient */
+     /*linear-gradient(
+       rgba(211,211 , 211, 0.45),
+       rgba(211,211 , 211, 0.45)
+     ),*/
+     /* bottom, image */
+
+     url(https://static.pexels.com/photos/40725/muesli-breakfast-food-cornflakes-40725.jpeg);
+
+
+
+  background-size: cover;
+ }
+
+a{
+
+  color: black;
+}
+
+.field input,
+textarea,
+.actions {
+  color: black;
+}
+
+.login-in-nav{
+  float: right;
+}
