@@ -1,9 +1,32 @@
 <h1>Restaurants</h1>
 
+
+
+<h2>Owned</h2>
+
+<%= link_to "New Restaurant" , new_restaurant_path %>
+
 <ul>
 
   <% @restaurants.each do |restaurant| %>
     <li><%= link_to restaurant.name + ' ' + restaurant.address , edit_restaurant_path(restaurant.id) %> </li>
   <% end %>
 
+</ul>
+
+
+
+<h2>Reservations</h2>
+<ul>
+
+  <% @reservations.each do |reservation| %>
+    <li><%= link_to reservation.reservation_time.to_s + ' ' + reservation.reservation_date.to_s , edit_restaurant_reservation_path(restaurant_id: reservation.restaurant_id, id: reservation.id) %> </li>
+  <% end %>
+</ul>
+
+<h2>Would you like to make a new reservation?</h2>
+<ul>
+  <% @restaurants_for_reservation.each do |restaurant| %>
+    <li><%= link_to restaurant.name + ' ' + restaurant.address , new_restaurant_reservation_path(restaurant.id) %> </li>
+  <% end %>
 </ul>
