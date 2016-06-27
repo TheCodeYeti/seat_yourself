@@ -11,7 +11,7 @@
     <%= csrf_meta_tags %>
 
   </head>
-  <body  class="<%= params[:controller] %>"  >
+  <body  class="tinted-image"  >
 
     <header>
       <nav class="navbar navbar-default">
@@ -27,7 +27,7 @@
           </div>
         </div>
         <% if current_user %>
-          <h2>Welcome back <%= current_user.name %>. </h2>
+          <!-- <h2>Welcome back <%= current_user.name %>. </h2> -->
         <% end %>
         <!--<div class="nav navbar-nav">-->
         <div class="collapse navbar-collapse" id="menuCollapse">
@@ -63,7 +63,7 @@
           <ul class="nav navbar-nav login-in-nav">
             <% if current_user %>
               <li> <%= link_to "Log out", session_path("current"), :method => :delete %> </li>
-              <li>  <%= link_to "Edit Profile", edit_user_path(current_user) %> </li>
+              <li>  <%= link_to "Edit " + current_user.name.capitalize, edit_user_path(current_user) %> </li>
             <% else %>
               <li>  <%= link_to "Log in", new_session_path %></li>
               <li>  <%= link_to "Sign up", new_user_path %></li>
@@ -82,6 +82,8 @@
       <p id="alert"><%= flash[:alert] %></p>
     <% end %>
 
+  <main>
+
     <section>
 
       <div class="container">
@@ -90,6 +92,6 @@
 
       </div>
     </section>
-
+<main>
   </body>
 </html>
