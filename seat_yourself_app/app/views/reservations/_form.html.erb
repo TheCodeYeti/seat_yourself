@@ -19,6 +19,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :party_size %>
+    <%= f.number_field :party_size %>
+  </div>
+
+  <div class="field">
     <%= f.label :reservation_time %>
     <%= f.select(:reservation_time) do %>
       <%= @restaurant.available_times.each do |time_slot| %>
